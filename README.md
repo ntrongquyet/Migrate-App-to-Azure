@@ -61,11 +61,27 @@ You will need to install the following locally:
 ## Monthly Cost Analysis
 Complete a month cost analysis of each Azure resource to give an estimate total cost using the table below:
 
-| Azure Resource | Service Tier | Monthly Cost |
-| ------------ | ------------ | ------------ |
-| *Azure Postgres Database* |     |              |
-| *Azure Service Bus*   |         |              |
-| ...                   |         |              |
-
+| Azure Resource            | Service Tier                                                                                                                       | Monthly Cost |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| *Azure Postgres Database* | Single Service                                                                                                                     | $25.32       |
+| *Azure Service Bus*       | Single Server Deployment, Basic Tier, 1 Gen 5 (1 vCore) x 1 Month, 5 GiB Storage, 0 GiB Additional Backup storage - LRS redundancy | $0.05        |
+| *Azure Functions*         | Consumption tier, Pay as you go, 128 MB memory, 100 milliseconds execution time, 0 executions/mo                                   | $0.0         |
+| *App Service*             | Free Tier; 1 F1 (0 Core(s), 1 GB RAM, 1 GB Storage) x 730 Hours; Linux OS                                                          | $0.0         |
+| **Est monthly cost**      |                                                                                                                                    | $25.37       |
+|                           |                                                                                                                                    |              |
 ## Architecture Explanation
-This is a placeholder section where you can provide an explanation and reasoning for your architecture selection for both the Azure Web App and Azure Function.
+***I have chosen both Azure App Service and Azure Functions because they offer the following advantages:***
+
+### ***Azure App Service:***
+
+- Easy and fast deployment of web apps: With Azure App Service, you don't have to worry about the underlying operating system or hardware. You can quickly deploy your web app without dealing with infrastructure complexities.
+
+- Cost savings: Azure App Service provides a free tier (F1) with 1GB RAM and 1GB storage, allowing you to deploy your app at no cost.
+
+### ***Azure Functions:***
+
+- Seamless integration with Azure services: Azure Functions can easily be incorporated with other Azure services like Azure Service Bus or Azure Event Hub. This enables you to build event-driven architectures and process messages or events efficiently.
+
+- Cost savings: With Azure Functions, you only pay for the execution time of your functions.
+
+=> By combining Azure Web App and Azure Functions, you can create a scalable, cost-effective, and performant web application architecture with microservices. Utilizing Azure Service Bus for decoupling application components can further enhance the reliability and maintainability of your solution. For example, you can use Service Bus to queue messages, trigger functions for sending emails to attendees, and update status asynchronously.
